@@ -203,7 +203,7 @@ Resources:
                     - 4spacesDeployerRole
                     - Arn
                 StackName:
-                  Fn::Sub: 4spacesWeb-${Branch}
+                  Fn::Sub: SpacesWeb-${Branch}
                 TemplatePath: Sources::CloudFormation.yaml
               InputArtifacts:
                 - Name: Sources

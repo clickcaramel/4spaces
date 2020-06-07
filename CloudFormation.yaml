@@ -1,0 +1,121 @@
+---
+# yamllint disable rule:line-length
+Description: 4spaces application stack for 4spaces resources
+Parameters:
+  Certificate:
+    Description: Certificate ARN for CloudFront
+    Type: String
+  HostedZoneName:
+    AllowedValues:
+      - 4spaces.company
+    Description: Zone where DNS records will be added
+    Type: String
+  Branch:
+    AllowedValues:
+      - master
+      - develop
+    Default: master
+    Description: Environment where the application will be deployed to
+    Type: String
+Resources:
+
+  4spacesCloudfront:
+    Properties:
+      DistributionConfig:
+        ViewerCertificate:
+          SslSupportMethod: sni-only
+          AcmCertificateArn:
+            Ref: Certificate
+        Aliases:
+          - Fn::Sub: ${HostedZoneName}
+          - Fn::Sub: www.${HostedZoneName}
+        Comment:
+          Fn::Sub: 4spaces for ${Branch}
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+          Compress: true
+          ForwardedValues:
+            Cookies:
+              Forward: none
+            QueryString: false
+          TargetOriginId: web
+          ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: index.html
+        Enabled: true
+        Origins:
+          - CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols:
+                - TLSv1
+                - TLSv1.1
+                - TLSv1.2
+            DomainName:
+              Fn::GetAtt:
+                - 4spacesWebBucket
+                - DomainName
+            Id: web
+        PriceClass: PriceClass_All
+    Type: AWS::CloudFront::Distribution
+
+  4spacesDomain:
+    Properties:
+      AliasTarget:
+        DNSName:
+          Fn::GetAtt:
+            - 4spacesCloudfront
+            - DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+      HostedZoneName:
+        Fn::Sub: ${HostedZoneName}.
+      Name:
+        Ref: HostedZoneName
+      Type: A
+    Type: AWS::Route53::RecordSet
+
+  4spacesDomainWww:
+    Properties:
+      AliasTarget:
+        DNSName:
+          Fn::GetAtt:
+            - 4spacesCloudfront
+            - DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+      HostedZoneName:
+        Fn::Sub: ${HostedZoneName}.
+      Name:
+        Fn::Sub: www.${HostedZoneName}
+      Type: A
+    Type: AWS::Route53::RecordSet
+
+  4spacesWebBucket:
+    Properties:
+      AccessControl: PublicRead
+      BucketName:
+        Fn::Sub: 4spaces-web-${AWS::Region}-${Branch}
+      WebsiteConfiguration:
+        ErrorDocument: index.html
+        IndexDocument: index.html
+    Type: AWS::S3::Bucket
+
+  4spacesWebBucketPolicy:
+    Properties:
+      Bucket:
+        Fn::Sub: 4spaces-web-${AWS::Region}-${Branch}
+      PolicyDocument:
+        Statement:
+          - Action:
+              - s3:GetObject
+            Effect: Allow
+            Principal: '*'
+            Resource:
+              Fn::Sub: arn:aws:s3:::4spaces-web-${AWS::Region}-${Branch}/*
+        Version: '2012-10-17'
+    Type: AWS::S3::BucketPolicy

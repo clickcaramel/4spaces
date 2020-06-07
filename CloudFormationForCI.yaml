@@ -264,12 +264,7 @@ Resources:
             build:
               commands:
                 - aws s3 rm --recursive s3://4spaces-web-${AWS::Region}-${Branch} --region ${AWS::Region}
-                - aws s3 cp robots-${Branch}.txt s3://4spaces-web-${AWS::Region}-${Branch}/robots.txt --cache-control "max-age=300" --region ${AWS::Region}
-                - aws s3 sync css s3://4spaces-web-${AWS::Region}-${Branch}/css --cache-control "max-age=86400" --region ${AWS::Region}
-                - aws s3 sync images s3://4spaces-web-${AWS::Region}-${Branch}/images --cache-control "max-age=86400" --region ${AWS::Region}
-                - aws s3 sync js s3://4spaces-web-${AWS::Region}-${Branch}/js --cache-control "max-age=86400" --region ${AWS::Region}
-                - aws s3 sync fonts s3://4spaces-web-${AWS::Region}-${Branch}/fonts --cache-control "max-age=2592000" --region ${AWS::Region}
-                - aws s3 cp index.html s3://4spaces-web-${AWS::Region}-${Branch}/index.html --cache-control "max-age=300" --region ${AWS::Region}
+                - aws s3 sync ./ s3://4spaces-web-${AWS::Region}-${Branch} --cache-control "max-age=300" --region ${AWS::Region}
                 - 'aws configure set preview.cloudfront true && aws cloudfront create-invalidation --distribution-id `aws cloudfront list-distributions | node -pe "JSON.parse(require(\"fs\").readFileSync(\"/dev/stdin\").toString()).DistributionList.Items.filter(function(i) { return i.Comment.indexOf(\"4spaces for ${Branch}\") >= 0; })[0].Id"` --paths "/*"'
           artifacts:
             files:

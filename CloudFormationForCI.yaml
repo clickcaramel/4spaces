@@ -153,7 +153,7 @@ Resources:
           Ref: 4spacesPipelineBucket
         Type: S3
       Name:
-        Fn::Sub: 4spacesWeb-${Branch}
+        Fn::Sub: SpacesWeb-${Branch}
       RoleArn:
         Fn::GetAtt:
           - 4spacesCodePipelineRole

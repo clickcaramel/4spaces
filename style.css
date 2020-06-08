@@ -1,7 +1,27 @@
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('assets/Gilroy/Gilroy-Regular.eot'); /* IE9 Compat Modes */
+    src: url('assets/Gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/Gilroy/Gilroy-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/Gilroy/Gilroy-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('assets/Gilroy/Gilroy-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('assets/Gilroy/Gilroy-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  }
+
+  @font-face {
+    font-family: 'Gilroy-SemiBold';
+    src: url('assets/Gilroy/Gilroy-SemiBold.eot'); /* IE9 Compat Modes */
+    src: url('assets/Gilroy/Gilroy-SemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/Gilroy/Gilroy-SemiBold.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/Gilroy/Gilroy-SemiBold.woff') format('woff'), /* Pretty Modern Browsers */
+         url('assets/Gilroy/Gilroy-SemiBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('assets/Gilroy/Gilroy-SemiBold.svg#svgFontName') format('svg'); /* Legacy iOS */
+  }
+
 :root{
     --primary-blue: #2051FF;
     --nav-bar-height: 48px;
-    --main-font: 'Khula', sans-serif;
+    --main-font: 'Gilroy-Regular', sans-serif;
 }
 #toggle-menu{
     visibility: hidden;
@@ -37,7 +57,14 @@ h1{
     font-size:55px;
     line-height:60px;
     margin-bottom: 1rem;
-    font-weight:600;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+}
+img{
+    width:100%;
+}
+
+a{
+    text-decoration:none;
 }
 
 /************** HEADER ********************/
@@ -75,15 +102,16 @@ header:before{
 }
 
 .nav-bar .logo{
-    font-weight:600;
-    color:white;
-    font-size:22px;
+    width:110px;
+    height:30px;   
 }
+
 
 .nav-bar ul{
     height:inherit;
     display:flex;
     align-items: center;
+    justify-content: flex-end;
 }
 .show-m{
     display:none;
@@ -189,6 +217,7 @@ header:before{
     background: white;
     position:relative;
     padding:20px 0;
+    padding-bottom:-10px;
 }
 
 .what-we-do:before{
@@ -208,8 +237,8 @@ header:before{
     content:"";
     position:absolute;
     width:100%;
-    height:100px;
-    bottom:0;
+    height:150px;
+    bottom:-50px;
     left:0;
     background: url('assets/wave4.svg') no-repeat;
     background-size:cover;
@@ -221,7 +250,7 @@ header:before{
     height:100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-end;
     color: #263238;
 
 }
@@ -297,7 +326,7 @@ header:before{
 
 .what-we-do-inner-content #text-box h3{
     font-size:24px;
-    line-height:60px;
+    line-height:1.2;
     font-weight:700;
 }
 
@@ -432,8 +461,9 @@ footer .footer-content{
 }
 
 footer .footer-content .footer-logo{
-    height:20px;
+    height:30px;
     margin-right: 60px;
+    width:110px;
 }
 
 footer .footer-content .footer-nav-links{

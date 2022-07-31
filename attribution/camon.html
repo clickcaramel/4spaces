@@ -44,16 +44,16 @@
         }
         var elapsedTime = 0;
         function waitForCookiesAndRedirect() {
-            setTimeout(function() {
-                elapsedTime += 10;
-                if (document.cookie.includes("fbp=") || elapsedTime >= 1000) {
-                    var redirect = parseQuery(window.location.search).redirect;
-                    var search = window.location.search;
-                    window.location.replace(redirect + search + (search.length > 1 ? "&" : (search.length > 0 ? "" : "?")) + document.cookie.replaceAll("; ", "&"));
-                } else {
+            if (document.cookie.includes("fbp=") || window.location.search.includes("fbclid=") || elapsedTime >= 1000) {
+                var redirect = parseQuery(window.location.search).redirect;
+                var search = window.location.search;
+                window.location.replace(redirect + search + (search.length > 1 ? "&" : (search.length > 0 ? "" : "?")) + document.cookie.replaceAll("; ", "&"));
+            } else {
+                setTimeout(function() {
+                    elapsedTime += 10;
                     waitForCookiesAndRedirect();
-                }
-            }, 10);
+                }, 10);
+            }
         }
         waitForCookiesAndRedirect();
     </script>

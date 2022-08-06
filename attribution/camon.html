@@ -51,7 +51,7 @@
         }
         var elapsedTime = 0;
         function waitForCookiesAndRedirect() {
-            if (document.cookie.includes("fbp=") || window.location.search.includes("fbclid=") || elapsedTime >= 1000) {
+            if (document.cookie.includes("fbp=") || document.cookie.includes("fbc=") || window.location.search.includes("fbclid=") || elapsedTime >= 1000) {
                 var redirect = parseQuery(window.location.search).redirect;
                 var search = window.location.search;
                 if (redirect) {

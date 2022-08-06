@@ -63,7 +63,7 @@
         }
         var elapsedTime = 0;
         function waitForCookiesAndRedirect() {
-            if (document.cookie.includes("fbp=") || document.cookie.includes("fbc=") || window.location.search.includes("fbclid=") || elapsedTime >= 1000) {
+            if (document.cookie.includes("fbp=") || document.cookie.includes("fbc=") || window.location.search.includes("ttclid=") || window.location.search.includes("fbclid=") || elapsedTime >= 1000) {
                 var parsedQuery = parseQuery(window.location.search);
                 var redirect = parsedQuery.redirect;
                 var scheme = parsedQuery.scheme || "camon://";

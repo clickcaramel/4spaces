@@ -40,22 +40,53 @@
     </script>
     <!-- TikTok Pixel Code End -->
     <script>
+        function removeQuestionMark(str) {
+            return str[0] === '?' ? str.substr(1) : str;
+        }
         function parseQuery(queryString) {
             var query = {};
-            var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+            var pairs = removeQuestionMark(queryString).split('&');
             for (var i = 0; i < pairs.length; i++) {
                 var pair = pairs[i].split('=');
                 query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
             }
             return query;
         }
+        function objectToQuery(obj, filter) {
+            var str = [];
+            for (var p in obj) {
+                if (obj.hasOwnProperty(p) && (!filter || filter(p, obj[p]))) {
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
+            }
+            return "?" + str.join("&");
+        }
         var elapsedTime = 0;
         function waitForCookiesAndRedirect() {
             if (document.cookie.includes("fbp=") || document.cookie.includes("fbc=") || window.location.search.includes("fbclid=") || elapsedTime >= 1000) {
-                var redirect = parseQuery(window.location.search).redirect;
-                var search = window.location.search;
+                var parsedQuery = parseQuery(window.location.search);
+                var redirect = parsedQuery.redirect;
+                var scheme = parsedQuery.scheme || "camon://";
+                var encodeForDeepLink = parsedQuery.deep !== "false";
+                delete parsedQuery.scheme;
+                delete parsedQuery.redirect;
+                delete parsedQuery.deep;
+                var searchWithCookies = ""
+                if (encodeForDeepLink) {
+                    var noDeepLinkSearch = objectToQuery(parsedQuery, function(p) { return !p.startsWith("deep_link_"); });
+                    var deepLinkSearch = objectToQuery(parsedQuery, function(p) { return p.startsWith("deep_link_") && p != "deep_link_sub10"; });
+                    searchWithCookies = objectToQuery(Object.assign(parsedQuery, { "deep_link_sub10": removeQuestionMark(noDeepLinkSearch) }), function(p) { return p.startsWith("deep_link_"); });
+                } else {
+                    var search = objectToQuery(parsedQuery);
+                    searchWithCookies = search + (search.length > 1 ? "&" : (search.length > 0 ? "" : "?")) + document.cookie.replaceAll("; ", "&");
+                }
                 if (redirect) {
-                    window.location.replace(redirect + search + (search.length > 1 ? "&" : (search.length > 0 ? "" : "?")) + document.cookie.replaceAll("; ", "&"));
+                    setTimeout(function() {
+                        window.location.replace(redirect + searchWithCookies);
+                    }, 25);
+                    if (scheme) {
+                        window.location.replace("camon://" + searchWithCookies);
+                    }
                 } else {
                     alert("Specify redirect parameter");
                 }

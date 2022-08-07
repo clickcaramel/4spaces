@@ -65,6 +65,10 @@
         function waitForCookiesAndRedirect() {
             if (document.cookie.includes("fbp=") || document.cookie.includes("fbc=") || window.location.search.includes("ttclid=") || window.location.search.includes("fbclid=") || elapsedTime >= 1000) {
                 var parsedQuery = parseQuery(window.location.search);
+                var ua = navigator.userAgent || navigator.vendor || window.opera;
+                if (ua.includes('Instagram') || ua.includes('TikTok')) {
+                    parsedQuery['af_force_deeplink'] = 'true';
+                }
                 var redirect = parsedQuery.redirect;
                 var scheme = parsedQuery.scheme || "camon://";
                 var encodeForDeepLink = parsedQuery.deep !== "false";
@@ -73,9 +77,9 @@
                 delete parsedQuery.deep;
                 var searchWithCookies = ""
                 if (encodeForDeepLink) {
-                    var noDeepLinkSearch = objectToQuery(parsedQuery, function(p) { return !p.startsWith("deep_link_"); });
-                    var deepLinkSearch = objectToQuery(parsedQuery, function(p) { return p.startsWith("deep_link_") && p != "deep_link_sub10"; });
-                    searchWithCookies = objectToQuery(Object.assign(parsedQuery, { "deep_link_sub10": removeQuestionMark(noDeepLinkSearch) }), function(p) { return p.startsWith("deep_link_"); });
+                    var isDeepLinkParam = function(p) { return p.startsWith("deep_link_") || p.includes("deeplink"); };
+                    var noDeepLinkSearch = objectToQuery(parsedQuery, function(p) { return !isDeepLinkParam(p); });
+                    searchWithCookies = objectToQuery(Object.assign(parsedQuery, { "deep_link_sub10": removeQuestionMark(noDeepLinkSearch) }), isDeepLinkParam);
                 } else {
                     var search = objectToQuery(parsedQuery);
                     searchWithCookies = search + (search.length > 1 ? "&" : (search.length > 0 ? "" : "?")) + document.cookie.replaceAll("; ", "&");

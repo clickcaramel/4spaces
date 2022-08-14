@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function nanoid(t=21) { return crypto.getRandomValues(new Uint8Array(t)).reduce(((t,e)=>t+=(e&=63)<36?e.toString(36):e<62?(e-26).toString(36).toUpperCase():e>62?"-":"_"),""); }
+        var userId = nanoid();
     </script>
     <!-- Meta Pixel Code -->
     <script>
@@ -15,7 +18,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '3119656818286886');
+    fbq('init', '3119656818286886', { external_id: userId });
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -28,6 +31,7 @@
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
       ttq.load('CBN0TORC77U1OJP14420');
       ttq.page();
+      ttq.identify({ external_id: userId });
     }(window, document, 'ttq');
     </script>
     <!-- TikTok Pixel Code End -->
@@ -60,6 +64,7 @@
         function waitForCookiesAndRedirect() {
             if (document.cookie.includes("fbp=") || document.cookie.includes("fbc=") || elapsedTime >= 1000) {
                 var parsedQuery = parseQuery(window.location.search);
+                parsedQuery['uadid'] = userId;
                 var ua = navigator.userAgent || navigator.vendor || window.opera;
                 if (ua.includes('Instagram') || ua.includes('TikTok')) {
                     parsedQuery['af_force_deeplink'] = 'true';

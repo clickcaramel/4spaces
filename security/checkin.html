@@ -14,6 +14,24 @@
       gtag('config', 'G-G2N7XW9R3S');
     </script>
     <script>
+        function removeQuestionMark(str) {
+            return str[0] === '?' ? str.substr(1) : str;
+        }
+        function parseQuery(queryString) {
+            var query = {};
+            var pairs = removeQuestionMark(queryString).split('&');
+            for (var i = 0; i < pairs.length; i++) {
+                var pair = pairs[i].split('=');
+                query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+            }
+            return query;
+        }
+        var parsedQuery = parseQuery(window.location.search);
+        if (parsedQuery.checkpoint) {
+            document.title = parsedQuery.checkpoint;
+        } else {
+            document.title = "Checked in!";
+        }
         window.addEventListener('load', function () {
             if (window.location.search) {
                 setTimeout(function () {

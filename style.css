@@ -130,6 +130,8 @@ header:before{
     text-decoration: none;
     opacity:0.6;
     color: var(--primary-blue);
+    color: #000000;
+    font-weight:bolder;
     transition: all 0.5s;
 }
 
@@ -687,6 +689,9 @@ footer .footer-copyright{
     text-align: center;
     height: 25px;
     top: 15px;
-    left: 110px; 
+    left: 125px; 
     background-color: #F5F9FC;
+}
+.li-large{
+    min-width: 150px;
 }

@@ -666,8 +666,8 @@ footer .footer-copyright{
     left: -30px;
     font-size: small;
     color: gray;
-    /* align-items:center; */
-    /* float:left; */
+    display: inline-block;
+    min-width: 190px;
 }
 .menu-button-1{
     border: 0;
@@ -688,8 +688,9 @@ footer .footer-copyright{
     position: relative;
     text-align: center;
     height: 25px;
+    width: 25px;
     top: 15px;
-    left: 125px; 
+    left: 120px; 
     background-color: #F5F9FC;
 }
 .li-large{

@@ -1,0 +1,28 @@
+ <ul class="hide-m" id="nav-links">
+                 
+                    <li><a href="#">Blogs</a></li>
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Our Product</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <img src="assets/Vector.png" alt="">
+                            <a href="#"> Polyglot <p>One step localization for iOS apps  </p> </a>
+                            <i class="fa fa-angle-right"></i> 
+                            <img src="assets/Rectangle 43 (1).png" alt="">
+                            <a href="#"> AI Boost<br><p>Photos/avatars/stickers AI drawer </p> </a>
+                            <i class="fa fa-angle-right"></i> 
+                            <img src="assets/Rectangle 43 (2).png" alt="">
+                            <a href="#">CamOn<br><p>Camera with vintage retro effects  </p> </a>
+                            <i class="fa fa-angle-right"></i> 
+                            <img src="assets/Rectangle 43 (3).png" alt="">
+                            <a href="#"> Tune AI<br><p>Next generation AI photo editor  </p> </a>
+                            <h3>DEV</h3>  
+                            <img src="assets/Rectangle 43 (4).png" alt="">
+                            <a href="#">Grunge<br><p>Mobile editor for short videos </p> </a>
+                            <h3>DEV</h3> 
+                          
+                        </div>
+                      </div>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="mailto:jobs@4spaces.company?subject=Job Application" onclick="sendEvent('js-mailto');goal('contact')" class="btn-blue">Join our team</a></li>
+                    
+                </ul> 

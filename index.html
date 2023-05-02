@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?168",t.onload=function(){VK.Retargeting.Init("VK-RTRG-535576-8LIab"),VK.Retargeting.Hit(),VK.Goal('page_view')},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-535576-8LIab" style="position:fixed; left:-999px;" alt=""/></noscript>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180754239-1"></script>
@@ -95,11 +96,32 @@
     <!--Nav-bar-links-->
                 
                 <ul class="hide-m" id="nav-links">
-<!--                     
+                 
                     <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Our products</a></li> -->
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Our Product</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <img src="assets/Vector.png" alt="">
+                            <a href="#"> Polyglot <p>One step localization for iOS apps  </p> </a>
+                            <i class="fa fa-angle-right"></i> 
+                            <img src="assets/Rectangle 43 (1).png" alt="">
+                            <a href="#"> AI Boost<br><p>Photos/avatars/stickers AI drawer </p> </a>
+                            <i class="fa fa-angle-right"></i> 
+                            <img src="assets/Rectangle 43 (2).png" alt="">
+                            <a href="#">CamOn<br><p>Camera with vintage retro effects  </p> </a>
+                            <i class="fa fa-angle-right"></i> 
+                            <img src="assets/Rectangle 43 (3).png" alt="">
+                            <a href="#"> Tune AI<br><p>Next generation AI photo editor  </p> </a>
+                            <h3>DEV</h3>  
+                            <img src="assets/Rectangle 43 (4).png" alt="">
+                            <a href="#">Grunge<br><p>Mobile editor for short videos </p> </a>
+                            <h3>DEV</h3> 
+                          
+                        </div>
+                      </div>
                     <li><a href="support.html">Support</a></li>
                     <li><a href="mailto:jobs@4spaces.company?subject=Job Application" onclick="sendEvent('js-mailto');goal('contact')" class="btn-blue">Join our team</a></li>
+                    
                 </ul> 
 
        
@@ -162,6 +184,26 @@
         </div>
         
     </footer>
-    
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
 </body>
 </html>

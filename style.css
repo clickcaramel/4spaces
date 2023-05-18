@@ -678,19 +678,19 @@ footer .footer-copyright{
     height: 25px;
     width: 25px;
     top: 15px;
-    left: 130px; 
+    left: 145px; 
     background-color: #F5F9FC;
 }
 .menu-button-2{
     border: 0;
-    border-radius: 6px;
+    border-radius: 10px;
     display: inline-block;
     position: relative;
     text-align: center;
     height: 25px;
-    width: 25px;
+    width: 45px;
     top: 15px;
-    left: 120px; 
+    left: 135px; 
     background-color: #F5F9FC;
 }
 .li-large{

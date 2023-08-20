@@ -95,17 +95,81 @@
     <!--Nav-bar-links-->
                 
                 <ul class="hide-m" id="nav-links">
-<!--                     
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Our products</a></li> -->
+                    <li class="li-large"><a href="#" id="opener-menu-products">Our products <img src="./assets/arrow_down.png" style="width: 20px; position:relative; top:4px;"></a></li>
                     <li><a href="support.html">Support</a></li>
-                    <li><a href="mailto:jobs@4spaces.company?subject=Job Application" onclick="sendEvent('js-mailto');goal('contact')" class="btn-blue">Join our team</a></li>
+                    <li class="li-large"><a href="mailto:jobs@4spaces.company?subject=Job Application" onclick="sendEvent('js-mailto');goal('contact')" class="btn-blue">Apply Now</a></li>
                 </ul> 
-
-       
                     
             </div>
         </nav>
+        <div id="menu-products"> 
+            <svg id="menusvg" width="443" height="457" viewBox="0 0 443 457" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_2_8)">
+                <path d="M32 49C32 40.1635 39.1634 33 48 33H68.1523C72.1626 33 76.0267 31.494 78.9794 28.7803L85.6498 22.6496C86.0447 22.2866 86.6557 22.2999 87.0345 22.6797L92.6388 28.2988C95.6406 31.3085 99.7166 33 103.967 33H254.164H395C403.837 33 411 40.1634 411 49V399C411 407.837 403.837 415 395 415H48C39.1634 415 32 407.837 32 399V49Z" fill="white"/>
+                </g>
+                <defs>
+                <filter id="filter0_d_2_8" x="0" y="0.385895" width="443" height="457" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="10"/>
+                <feGaussianBlur stdDeviation="16"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_8"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_8" result="shape"/>
+                </filter>
+                </defs>
+
+                <foreignObject x="50" y="50" width="350" height="440">
+                    <div class="menu-application">
+                     <img src="./assets/Polyglot-logo.png" style="position:relative; left:-40px; width:50px;" alt="Polyglot Logo" >
+                     <div class="menu-application-info">
+                      <span class="menu-title">Polyglot</span> 
+                      <a class="menu-button-1" href="https://polyglot.rocks"><img src="./assets/arrow_dx.png" style="margin-top:8px; width:30%; height:40%;"></a><br>
+                      <span class="menu-subtitle">One step localization for iOS apps</span>
+                    </div>
+                    </div>
+
+                    <div class="menu-application">
+                        <img src="./assets/AI_Boost-logo.png" style="position:relative; left:-40px; width:50px;" alt="AI Boost Logo" >
+                        <div class="menu-application-info">
+                         <span class="menu-title">AI Boost</span> 
+                         <a class="menu-button-1" href="https://apps.apple.com/US/app/id1618280703"><img src="./assets/arrow_dx.png" style="margin-top:8px; width:30%; height:40%;"></a><br>
+                         <span class="menu-subtitle">Photos/avatars/stickers AI drawer</span>
+                       </div>
+                       </div>
+
+                       <div class="menu-application">
+                        <img src="./assets/CamOn-logo.png" style="position:relative; left:-40px; width:50px;" alt="CamOn Logo" >
+                        <div class="menu-application-info">
+                         <span class="menu-title">CamOn</span> 
+                         <a class="menu-button-1" href="https://apps.apple.com/us/app/camon-90s-vhs-filter-camera/id1601932111" ><img src="./assets/arrow_dx.png" style="margin-top:8px; width:30%; height:40%;"></a><br>
+                         <span class="menu-subtitle">Next generation AI photo editor&nbsp&nbsp</span>
+                       </div>
+                       </div>
+
+                       <div class="menu-application">
+                        <img src="./assets/Tune_AI-logo.png" style="position:relative; left:-40px; width:50px;" alt="Tune AI Logo" >
+                        <div class="menu-application-info">
+                         <span class="menu-title">Tune AI</span> 
+                         <a class="menu-button-2"><img src="./assets/menu-dev.png" style="margin-top:7px; width:60%; height:35%;"></a><br>
+                         <span class="menu-subtitle">Next generation AI photo editor</span>
+                       </div>
+                       </div>
+
+                       <div class="menu-application">
+                        <img src="./assets/Grunge-logo.png" style="position:relative; left:-40px; width:50px;" alt="Grunge Logo" >
+                        <div class="menu-application-info">
+                         <span class="menu-title">Grunge</span> 
+                         <a class="menu-button-2" style="margin-left:-2px;"><img src="./assets/menu-dev.png" style="margin-top:7px; width:60%; height:35%;"></a><br>
+                         <span class="menu-subtitle">Mobile editor for short videos</span>
+                       </div>
+                       </div>
+
+                  </foreignObject>
+                </svg>
+
+        </div>
         <div class="wrapper hero-section">
             <div class="hero-content">
                 <h1>Work with us from anywhere</h1>
@@ -208,5 +272,44 @@
         
     </footer>
     
+    <script>
+        // script to open menu "our products"
+        const opener = document.getElementById("opener-menu-products");
+		const menu = document.getElementById("menu-products");
+
+		opener.addEventListener("click", function() {
+            const svgElement = document.getElementById('menusvg');
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 769) {
+            svgElement.querySelector("path").setAttribute('d', 'M32.7812 58.1902C32.7812 49.3537 39.9447 42.1902 48.7813 42.1902H327.444C331.645 42.1902 335.678 40.5378 338.671 37.5897L354.391 22.1072C354.461 22.0385 354.555 22 354.653 22V22C357.244 22 359.538 23.6719 360.332 26.138L362.25 32.0951C364.187 38.1114 369.785 42.1902 376.105 42.1902H395.781C404.618 42.1902 411.781 49.3537 411.781 58.1902V408.19C411.781 417.027 404.618 424.19 395.781 424.19H48.7813C39.9447 424.19 32.7812 417.027 32.7812 408.19V58.1902Z');
+            if (menu.style.display == "none" || menu.style.display == "") {
+                const posizioneopener = opener.getBoundingClientRect();
+                console.log(posizioneopener.top)
+                menu.style.left = posizioneopener.left - 300 + 'px';
+                menu.style.top =  posizioneopener.top + 10 + 'px';
+				menu.style.display = "block";
+				menu.style.visibility = "visible";
+			} else {
+				menu.style.display = "none";
+                menu.style.visibility = "hidden";
+			}    
+        }
+            else{
+                svgElement.querySelector("path").setAttribute('d','M32 49C32 40.1635 39.1634 33 48 33H68.1523C72.1626 33 76.0267 31.494 78.9794 28.7803L85.6498 22.6496C86.0447 22.2866 86.6557 22.2999 87.0345 22.6797L92.6388 28.2988C95.6406 31.3085 99.7166 33 103.967 33H254.164H395C403.837 33 411 40.1634 411 49V399C411 407.837 403.837 415 395 415H48C39.1634 415 32 407.837 32 399V49Z');
+			if (menu.style.display == "none" || menu.style.display == "") {
+                const posizioneopener = opener.getBoundingClientRect();
+                console.log(posizioneopener.top)
+                menu.style.left = posizioneopener.left - 60 + 'px';
+                menu.style.top =  posizioneopener.top + 30 + 'px';
+				menu.style.display = "block";
+				menu.style.visibility = "visible";
+			} else {
+				menu.style.display = "none";
+                menu.style.visibility = "hidden";
+			}
+        }
+		});
+
+    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -78,7 +78,7 @@
         <nav>
             <div class="wrapper nav-bar">
                 <div class="logo" id="nav-logo">
-                    <img src="assets/logo-white.svg" alt="4spaces">
+                    <img src="/assets/logo-white.svg" alt="4spaces">
                 </div>
     <!--Mobile Menu Btn-->
                 <div class="show-m" id="mobile-menu-btn">
@@ -100,7 +100,23 @@
                 <ul id="nav-links" class="nav-links">
 <!--                     
                     <li><a href="#">Blogs</a></li> -->
-                    <li class="nav-links__link-wrapper"><a class="nav-links__link" href="#">Our products</a></li>
+                    <li class="nav-links__link-wrapper">
+                        <button id="our-products-btn" aria-expanded="false" aria-controls="products" class="nav-links__btn">
+                            <span class="nav-links__btn-text">Our products</span>
+                            <svg width="10" height="6" class="nav-links__btn-arrow">
+                                <use href="/assets/sprite.svg#arrow-down"></use>
+                            </svg>
+                        </button>
+                        <div id="products" class="products">
+                            <ul class="products__list">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li class="nav-links__link-wrapper"><a class="nav-links__link" href="support.html">Support</a></li>
                     <li class="nav-links__link-wrapper">
                         <a
@@ -218,6 +234,7 @@
         </div>
         
     </footer>
-    
+    <script src="/scripts/main.js">
+    </script>
 </body>
 </html>

@@ -660,14 +660,33 @@ footer .footer-copyright{
 
 .products {
     position: absolute;
-    left: 0;
-    top: calc(100% + 0.625rem);
-    /* display: none; */
+    inset: auto 0;
+    top: calc(100% + 0.5rem);
+    display: none;
+    transform-origin: center;
+}
+
+.products::before {
+    content: '';
+    background-image: url('/assets/triangle-tip.svg');
+    z-index: 2;
+    display: block;
+    width: 2.125rem;
+    height: 0.6875rem;
+    position: relative;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .products__list {
+    position: absolute;
+    left: 0;
+    top: 100%;
     padding: 1.5rem 1.25rem;
     background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0.625rem 2rem 0 rgb(0 0 0 / 25%);
 }
 
 .products__list-item {

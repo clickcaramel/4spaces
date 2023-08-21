@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?168",t.onload=function(){VK.Retargeting.Init("VK-RTRG-535576-8LIab"),VK.Retargeting.Hit(),VK.Goal('page_view')},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-535576-8LIab" style="position:fixed; left:-999px;" alt=""/></noscript>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180754239-1"></script>
@@ -100,25 +100,96 @@
                 <ul id="nav-links" class="nav-links">
 <!--                     
                     <li><a href="#">Blogs</a></li> -->
-                    <li class="nav-links__link-wrapper">
+                    <li class="nav-links__item nav-links__popup-item">
                         <button id="our-products-btn" aria-expanded="false" aria-controls="products" class="nav-links__btn">
                             <span class="nav-links__btn-text">Our products</span>
                             <svg width="10" height="6" class="nav-links__btn-arrow">
                                 <use href="/assets/sprite.svg#arrow-down"></use>
                             </svg>
                         </button>
-                        <div id="products" class="products">
+                        <div id="products" class="products" role="status">
                             <ul class="products__list">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
+                                <li class="products__list-item">
+                                    <a href="#" class="products__list-item-content">
+                                        <div class="products__list-item-img-wrapper">
+                                            <img src="/assets/polyglot-logo.png" alt="Polyglot logo" class="products__list-item-img" />
+                                        </div>
+                                        <div class="products__list-item-text">
+                                            <span class="products__list-item-text-main">Polyglot</span>
+                                            <span class="products__list-item-text-secondary">One step localization for iOS apps</span>
+                                        </div>
+                                        <div class="products__list-item-arrow-container">
+                                            <svg width="10" height="6" class="products__list-item-arrow">
+                                                <use href="/assets/sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="products__list-item">
+                                    <a href="#" class="products__list-item-content">
+                                        <div class="products__list-item-img-wrapper">
+                                            <img src="/assets/ai-boost-logo.png" alt="AI Boost logo" class="products__list-item-img" />
+                                        </div>
+                                        <div class="products__list-item-text">
+                                            <span class="products__list-item-text-main">AI Boost</span>
+                                            <span class="products__list-item-text-secondary">Photos/avatars/stickers AI drawer</span>
+                                        </div>
+                                        <div class="products__list-item-arrow-container">
+                                            <svg width="10" height="6" class="products__list-item-arrow">
+                                                <use href="/assets/sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="products__list-item">
+                                    <a href="#" class="products__list-item-content">
+                                        <div class="products__list-item-img-wrapper">
+                                            <img src="/assets/camon-logo.png" alt="CamOn logo" class="products__list-item-img" />
+                                        </div>
+                                        <div class="products__list-item-text">
+                                            <span class="products__list-item-text-main">CamOn</span>
+                                            <span class="products__list-item-text-secondary">Camera with vintage retro effects</span>
+                                        </div>
+                                        <div class="products__list-item-arrow-container">
+                                            <svg width="10" height="6" class="products__list-item-arrow">
+                                                <use href="/assets/sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="products__list-item">
+                                    <a href="#" class="products__list-item-content">
+                                        <div class="products__list-item-img-wrapper">
+                                            <img src="/assets/tune-ai-logo.png" alt="Tune AI logo" class="products__list-item-img" />
+                                        </div>
+                                        <div class="products__list-item-text">
+                                            <span class="products__list-item-text-main">Tune AI</span>
+                                            <span class="products__list-item-text-secondary">Next generation AI photo editor</span>
+                                        </div>
+                                        <div class="products__list-item-dev-container">
+                                            <strong class="products__list-item-dev">DEV</strong>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="products__list-item">
+                                    <a href="#" class="products__list-item-content">
+                                        <div class="products__list-item-img-wrapper">
+                                            <img src="/assets/grunge-logo.png" alt="Grunge logo" class="products__list-item-img" />
+                                        </div>
+                                        <div class="products__list-item-text">
+                                            <span class="products__list-item-text-main">Grunge</span>
+                                            <span class="products__list-item-text-secondary">Mobile editor for short videos</span>
+                                        </div>
+                                        <div class="products__list-item-dev-container">
+                                            <strong class="products__list-item-dev">DEV</strong>
+                                        </div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-links__link-wrapper"><a class="nav-links__link" href="support.html">Support</a></li>
-                    <li class="nav-links__link-wrapper">
+                    <li class="nav-links__item"><a class="nav-links__link" href="support.html">Support</a></li>
+                    <li class="nav-links__item">
                         <a
                             class="nav-links__link nav-links__link-blue"
                             href="mailto:jobs@4spaces.company?subject=Job Application"

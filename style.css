@@ -691,6 +691,23 @@ footer .footer-copyright{
 
 .products__list-item {
     margin-top: 1.5rem;
+    border-radius: 0.625rem;
+}
+
+.products__list-item-prod {
+    transition: background-color 0.150s;
+}
+
+.products__list-item-prod .products__list-item-arrow {
+    transition: color 0.150s;
+}
+
+.products__list-item-prod:hover {
+    background-color: var(--blue-100);
+}
+
+.products__list-item-prod:hover .products__list-item-arrow {
+    color: var(--blue-600);
 }
 
 .products__list-item:first-child {

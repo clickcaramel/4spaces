@@ -1,14 +1,9 @@
 const productsBtn = document.getElementById('our-products-btn');
 const products = document.getElementById('products');
-const productsList = products.querySelector('.products__list');
 const open = () => {
   productsBtn.classList.add('nav-links__btn--active');
   productsBtn.setAttribute('aria-expanded', true);
   products.style.setProperty('display', 'block');
-  const alignment = document.documentElement.clientWidth < 769
-    ? 'right'
-    : 'left';
-  productsList.style.setProperty(alignment, '0');
   const anim = products.animate([
     { transform: 'scale(0.6)', opacity: 0 },
     { transform: 'scale(1)', opacity: 1 },
@@ -33,8 +28,6 @@ const close = () => {
   anim.finished.then(() => {
     anim.cancel();
     products.style.removeProperty('display');
-    productsList.style.removeProperty('left');
-    productsList.style.removeProperty('right');
   });
 }
 let closeOnClickOut = null;

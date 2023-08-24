@@ -680,59 +680,68 @@ footer .footer-copyright{
 .products__list {
     position: absolute;
     top: 100%;
+    right: 0;
+    left: auto;
     padding: 1.5rem 1.25rem;
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0 0.625rem 2rem 0 rgb(0 0 0 / 25%);
 }
 
-.products__list-item {
+@media (min-width: 769px) {
+    .products__list {
+        left: 0;
+        right: auto;
+    }
+}
+
+.products__product-item {
     margin-top: 1.5rem;
     border-radius: 0.625rem;
 }
 
-.products__list-item-prod {
+.products__product-item-prod {
     transition: background-color 0.150s;
 }
 
-.products__list-item-prod .products__list-item-arrow {
+.products__product-item-prod .product-item__arrow {
     transition: color 0.150s;
 }
 
-.products__list-item-prod:hover {
+.products__product-item-prod:hover {
     background-color: var(--blue-100);
 }
 
-.products__list-item-prod:hover .products__list-item-arrow {
+.products__product-item-prod:hover .product-item__arrow {
     color: var(--blue-600);
 }
 
-.products__list-item:first-child {
+.products__product-item:first-child {
     margin-top: 0;
 }
 
-.products__list-item-content {
+.product-item__content {
     display: flex;
     align-items: center;
 }
 
-.products__list-item-img-wrapper {
+.product-item__img-wrapper {
     width: 3rem;
     height: 3rem;
     margin-right: 1rem;
 }
 
-.products__list-item-img {
+.product-item__img {
     width: auto;
 }
 
-.products__list-item-text {
+.product-item__text {
     flex-shrink: 0;
     flex-grow: 1;
     margin-right: 1.375rem;
 }
 
-.products__list-item-text-main {
+.product-item__text-main {
     display: block;
     margin-bottom: 0.125rem;
     color: black;
@@ -741,7 +750,7 @@ footer .footer-copyright{
     line-height: 1.375rem;
 }
 
-.products__list-item-text-secondary {
+.product-item__text-secondary {
     display: block;
     width: max-content;
     font-weight: 500;
@@ -752,12 +761,12 @@ footer .footer-copyright{
 }
 
 @media (min-width: 480px) {
-    .products__list-item-text-secondary {
+    .product-item__text-secondary {
         max-width: none;
     }
 }
 
-.products__list-item-arrow-container {
+.product-item__arrow-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -768,18 +777,18 @@ footer .footer-copyright{
     flex-shrink: 0;
 }
 
-.products__list-item-arrow {
+.product-item__arrow {
     transform: rotateZ(-90deg);
     color: var(--blue-300);
 }
 
-.products__list-item-dev-container {
+.product-item__dev-container {
     background-color: var(--blue-100);
     border-radius: 0.5rem;
     padding: 0.3125rem 0.625rem;
 }
 
-.products__list-item-dev {
+.product-item__dev {
     display: block;
     color: var(--blue-600);
     letter-spacing: 0.1em;

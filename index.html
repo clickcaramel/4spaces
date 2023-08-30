@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?168",t.onload=function(){VK.Retargeting.Init("VK-RTRG-535576-8LIab"),VK.Retargeting.Hit(),VK.Goal('page_view')},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-535576-8LIab" style="position:fixed; left:-999px;" alt=""/></noscript>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180754239-1"></script>
@@ -75,7 +75,7 @@
         <nav>
             <div class="wrapper nav-bar">
                 <div class="logo" id="nav-logo">
-                    <img src="assets/logo-white.svg" alt="4spaces">
+                    <img src="/assets/logo-white.svg" alt="4spaces">
                 </div>
     <!--Mobile Menu Btn-->
                 <div class="show-m" id="mobile-menu-btn">
@@ -94,12 +94,79 @@
 
     <!--Nav-bar-links-->
                 
-                <ul class="hide-m" id="nav-links">
+                <ul id="nav-links" class="nav-links">
 <!--                     
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Our products</a></li> -->
-                    <li><a href="support.html">Support</a></li>
-                    <li><a href="mailto:jobs@4spaces.company?subject=Job Application" onclick="sendEvent('js-mailto');goal('contact')" class="btn-blue">Join our team</a></li>
+                    <li><a href="#">Blogs</a></li> -->
+                    <li class="nav-links__item nav-links__popup-item">
+                        <button id="our-products-btn" aria-expanded="false" aria-controls="products" class="nav-links__btn">
+                            <span class="nav-links__btn-text">Our products</span>
+                            <svg width="10" height="6" class="nav-links__btn-arrow">
+                                <use href="/assets/sprite.svg#arrow-down"></use>
+                            </svg>
+                        </button>
+                        <div id="products" class="products" role="status">
+                            <ul class="products__list">
+                                <li class="products__product-item products__product-item-prod">
+                                    <a target="_blank" href="https://polyglot.rocks/" class="product-item__content">
+                                        <div class="product-item__img-wrapper">
+                                            <img src="/assets/polyglot-logo.png" alt="Polyglot logo" class="product-item__img" />
+                                        </div>
+                                        <div class="product-item__text">
+                                            <span class="product-item__text-main">Polyglot</span>
+                                            <span class="product-item__text-secondary">One step localization for iOS apps</span>
+                                        </div>
+                                        <div class="product-item__arrow-container">
+                                            <svg width="10" height="6" class="product-item__arrow">
+                                                <use href="/assets/sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="products__product-item products__product-item-prod">
+                                    <a target="_blank" href="https://apps.apple.com/us/app/ai-portraits-muscle-editor/id1618280703" class="product-item__content">
+                                        <div class="product-item__img-wrapper">
+                                            <img src="/assets/ai-boost-logo.png" alt="AI Boost logo" class="product-item__img" />
+                                        </div>
+                                        <div class="product-item__text">
+                                            <span class="product-item__text-main">AI Boost</span>
+                                            <span class="product-item__text-secondary">Photos/avatars/stickers AI drawer</span>
+                                        </div>
+                                        <div class="product-item__arrow-container">
+                                            <svg width="10" height="6" class="product-item__arrow">
+                                                <use href="/assets/sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="products__product-item products__product-item-prod">
+                                    <a target="_blank" href="https://apps.apple.com/us/app/camon-90s-vhs-filter-camera/id1601932111" class="product-item__content">
+                                        <div class="product-item__img-wrapper">
+                                            <img src="/assets/camon-logo.png" alt="CamOn logo" class="product-item__img" />
+                                        </div>
+                                        <div class="product-item__text">
+                                            <span class="product-item__text-main">CamOn</span>
+                                            <span class="product-item__text-secondary">Camera with vintage retro effects</span>
+                                        </div>
+                                        <div class="product-item__arrow-container">
+                                            <svg width="10" height="6" class="product-item__arrow">
+                                                <use href="/assets/sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-links__item"><a class="nav-links__link" href="support.html">Support</a></li>
+                    <li class="nav-links__item">
+                        <a
+                            class="nav-links__link nav-links__link-blue"
+                            href="mailto:jobs@4spaces.company?subject=Job Application"
+                            onclick="sendEvent('js-mailto');goal('contact')"
+                        >
+                            Join our team
+                        </a>
+                    </li>
                 </ul> 
 
        
@@ -130,9 +197,7 @@
         <section class="what-we-do">
             <div class="wrapper what-we-do-inner">
                 <div class="what-we-do-inner-image">
-                    <a href="https://hypee.app" onclick="sendEvent('hypee-image-link-click')">
-                        <img src="assets/what-we-do-image.png" alt="effective technology">
-                    </a>
+                    <img src="assets/what-we-do-image.png" alt="effective technology">
                 </div>
               
                 <div class="what-we-do-inner-content">
@@ -207,6 +272,7 @@
         </div>
         
     </footer>
-    
+    <script src="/scripts/main.js">
+    </script>
 </body>
 </html>

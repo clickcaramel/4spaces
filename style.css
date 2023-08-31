@@ -729,10 +729,13 @@ footer .footer-copyright{
     width: 3rem;
     height: 3rem;
     margin-right: 1rem;
+    overflow: hidden;
+    border-radius: 0.625rem;
 }
 
 .product-item__img {
-    width: auto;
+    width: 100%;
+    height: 100%
 }
 
 .product-item__text {

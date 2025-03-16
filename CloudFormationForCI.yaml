@@ -17,6 +17,7 @@ Parameters:
     Description: GitHub repository name
     Type: String
   GitHubToken:
+    NoEcho: true
     Description: GitHub Token
     Type: String
   GitHubOwner:

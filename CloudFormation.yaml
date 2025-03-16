@@ -97,7 +97,11 @@ Resources:
 
   4spacesWebBucket:
     Properties:
-      AccessControl: PublicRead
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
       BucketName:
         Fn::Sub: 4spaces-web-${AWS::Region}-${Branch}
       WebsiteConfiguration:

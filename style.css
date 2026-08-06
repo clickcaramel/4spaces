@@ -668,7 +668,7 @@ footer .footer-copyright{
 
 .products::before {
     content: '';
-    background-image: url('/assets/triangle-tip.svg');
+    background-image: url('assets/triangle-tip.svg');
     z-index: 2;
     display: block;
     width: 2.125rem;
